@@ -2,13 +2,13 @@ import React, { useState } from 'react';
 import { Button, Modal } from 'react-bootstrap';
 import { useFormik } from 'formik';
 import * as yup from 'yup';
-import useApi from '../../hooks/useApi';
+import hookApi from '../../hooks/hookApi';
 
 export default function ModalCdl({ modalName, setModalName, title, setSub, table, setList }) {
 
   const [pseudoError, setPseudoError] = useState(false);
 
-  const { addSubscribers } = useApi();
+  const { AddSubscribers } = hookApi();
 
   const formik = useFormik({
     initialValues: {
@@ -22,7 +22,7 @@ export default function ModalCdl({ modalName, setModalName, title, setSub, table
         table
       }
       try {
-        const response = await addSubscribers(data)
+        const response = await AddSubscribers(data)
         // console.log(response)
 
         setPseudoError(false)
@@ -69,7 +69,7 @@ export default function ModalCdl({ modalName, setModalName, title, setSub, table
           <Button variant="secondary" onClick={() => setModalName(false)}>
             Cancel
           </Button>
-          <button type="submit" className='btn btn-cdl-primary'>S'inscrire</button>
+          <button type="submit" className='btn btn-cdl-primary'>S&apos;inscrire</button>
         </Modal.Footer>
       </form>
     </Modal>

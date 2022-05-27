@@ -1,12 +1,12 @@
-import usePrisma from '../../../hooks/usePrisma.js';
+import hookPrisma from '../../../hooks/hookPrisma.js';
 
 export default async function addSubscribers(req, res) {
 
   const { pseudo, comment, table } = req.body;
 
-  const { checkPrimsaTable } = usePrisma();
+  const { CheckPrimsaTable } = hookPrisma();
 
-  const prismaTable = await checkPrimsaTable(table);
+  const prismaTable = await CheckPrimsaTable(table);
 
   const checkIfPseudoExists = await prismaTable.findUnique({ where: { pseudo } })
   if(checkIfPseudoExists) return res.status(400).send({message: "Cette personne est déjà inscrite"})

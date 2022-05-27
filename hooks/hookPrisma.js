@@ -1,8 +1,8 @@
 import prisma from '../utils/pisma'
 
-export default function usePrisma() {
+export default function hookPrisma() {
 
-  const checkPrimsaTable = (table) => {
+  const CheckPrimsaTable = (table) => {
 
     let prismaTable
 
@@ -57,7 +57,7 @@ export default function usePrisma() {
   }
 
   return {
-    checkPrimsaTable
+    CheckPrimsaTable
   }
 
 }

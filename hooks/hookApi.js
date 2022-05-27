@@ -1,17 +1,17 @@
-export default function useApi() {
+export default function hookApi() {
 
-  const loadSubscribers = async (table, setTableList) => {
+  const LoadSubscribers = async (table, setTableList) => {
     try {
       const result = await fetch(`${process.env.REACT_APP_URL_API}/subscribers/getSubscribers?table=${table}`);
       const data = await result.json();
       setTableList(data);
       return data;
     } catch (err) {
-      console.log(err);
+      return err;
     }
   }
 
-  const addSubscribers = async (data) => {
+  const AddSubscribers = async (data) => {
     try {
       const res = await fetch(`${process.env.REACT_APP_URL_API}/subscribers/addSubscribers`, {
         method: 'POST',
@@ -27,7 +27,7 @@ export default function useApi() {
     }
   }
 
-  const deleteSubscriberFromTable = async (data) => {
+  const DeleteSubscriberFromTable = async (data) => {
     try {
       const res = await fetch(`${process.env.REACT_APP_URL_API}/subscribers/deleteSubscribers`, {
         method: 'DELETE',
@@ -45,8 +45,8 @@ export default function useApi() {
   }
 
   return {
-    loadSubscribers,
-    addSubscribers,
-    deleteSubscriberFromTable
+    LoadSubscribers,
+    AddSubscribers,
+    DeleteSubscriberFromTable
   }
 }

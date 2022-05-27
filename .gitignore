@@ -30,3 +30,8 @@ yarn-error.log*
 
 # vercel
 .vercel
+
+rando.sql
+rando.zip
+server.js
+.env

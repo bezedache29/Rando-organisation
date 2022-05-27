@@ -22,7 +22,7 @@ export default function Inscription({ title, secondTitle, badge, datas, setModal
             </div>
           </li>
         )) : (
-          <p>Pas encore d'inscrits</p>
+          <p>Pas encore d&lsquo;inscrits</p>
         )}
         </ul>
       <div>

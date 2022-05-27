@@ -1,10 +1,10 @@
 import Head from 'next/head';
 import { useEffect, useState } from 'react';
-import { Alert, Button, Modal, Spinner, Toast, ToastContainer } from 'react-bootstrap';
+import { Alert, Button, Modal, Spinner } from 'react-bootstrap';
 import ModalCdl from '../components/Modal/ModalCdl';
 import SubTitle from '../components/SubTitle/SubTitle';
 import Inscription from '../components/Template/Inscription';
-import useApi from '../hooks/useApi';
+import hookApi from '../hooks/hookApi';
 
 export default function Home() {
 
@@ -46,30 +46,30 @@ export default function Home() {
   const [security2List, setSecurity2List] = useState([]);
   const [security3List, setSecurity3List] = useState([]);
 
-  const { loadSubscribers, deleteSubscriberFromTable } = useApi();
+  const { LoadSubscribers, DeleteSubscriberFromTable } = hookApi();
 
   const [showAlert, setShowAlert] = useState(false);
 
   const loadAllSubscribers = async () => {
-    await loadSubscribers('vendredi', setVendrediList);
-    await loadSubscribers('samedi', setSamediList);
-    await loadSubscribers('ouverture', setOuvertureList);
-    await loadSubscribers('cochon', setCochonList);
-    await loadSubscribers('inscriptions', setInscriptionsList);
-    await loadSubscribers('lavage', setLavageList);
-    await loadSubscribers('parking', setParkingList);
-    await loadSubscribers('ravito1', setRavito1List);
-    await loadSubscribers('ravito2', setRavito2List);
-    await loadSubscribers('ravito3', setRavito3List);
-    await loadSubscribers('sandwich', setSandwichList);
-    await loadSubscribers('securitysite', setSecurity1List);
-    await loadSubscribers('securitycircuits', setSecurity2List);
-    await loadSubscribers('securitypassages', setSecurity3List);
+    await LoadSubscribers('vendredi', setVendrediList);
+    await LoadSubscribers('samedi', setSamediList);
+    await LoadSubscribers('ouverture', setOuvertureList);
+    await LoadSubscribers('cochon', setCochonList);
+    await LoadSubscribers('inscriptions', setInscriptionsList);
+    await LoadSubscribers('lavage', setLavageList);
+    await LoadSubscribers('parking', setParkingList);
+    await LoadSubscribers('ravito1', setRavito1List);
+    await LoadSubscribers('ravito2', setRavito2List);
+    await LoadSubscribers('ravito3', setRavito3List);
+    await LoadSubscribers('sandwich', setSandwichList);
+    await LoadSubscribers('securitysite', setSecurity1List);
+    await LoadSubscribers('securitycircuits', setSecurity2List);
+    await LoadSubscribers('securitypassages', setSecurity3List);
     setLoading(false);
   }
 
   const loadAllSubscibersPoste = async (poste, setPosteList) => {
-    await loadSubscribers(poste, setPosteList);
+    await LoadSubscribers(poste, setPosteList);
     // setLoading(false);
   }
 
@@ -88,7 +88,7 @@ export default function Home() {
   }, [sub])
 
   const deleteSubscriber = async (data) => {
-    await deleteSubscriberFromTable(data)
+    await DeleteSubscriberFromTable(data)
     await loadAllSubscibersPoste(data.table, data.setList);
     setShowAlert('La personne a bien été supprimée');
     setModalDelete(false);
@@ -120,7 +120,7 @@ export default function Home() {
         <div className='shadow p-3 mt-4 mb-5 bg-cdl-secondary rounded text-center'>
           <h2 className='my-0'>LESNEVEN le dimanche 12 JUIN 2022</h2>
           <p className='my-0'>Le Côte Des Légendes VTT organise sa 20ème rando</p>
-          <p className='my-0'>Pour la réussite d'une belle journée, la mobilisation de tous est indispensable.</p>
+          <p className='my-0'>Pour la réussite d&apos;une belle journée, la mobilisation de tous est indispensable.</p>
         </div>
 
         {showAlert && (
@@ -193,7 +193,7 @@ export default function Home() {
 
           <Inscription title={'Cochon grillé'} setModal={setCochon} datas={cochonList} deleteSubsciber={setModalDelete} table='cochon' setList={setCochonList} />
 
-          <p className='fw-bold m-0'>Veuillez répondre RAPIDEMENT pour faciliter l'organisation ...</p>
+          <p className='fw-bold m-0'>Veuillez répondre RAPIDEMENT pour faciliter l&apos;organisation ...</p>
           <p className='fw-bold m-0'>A tous encore une fois MERCI !!!</p>
 
           <p className='fw-bold mt-4'>Jean-Noël</p>

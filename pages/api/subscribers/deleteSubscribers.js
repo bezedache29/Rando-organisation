@@ -1,11 +1,11 @@
-import usePrisma from '../../../hooks/usePrisma.js';
+import hookPrisma from '../../../hooks/hookPrisma.js';
 
 export default async function deleteSubscribers(req, res) {
 
   const { data, table } = req.body;
-  const { checkPrimsaTable } = usePrisma();
+  const { CheckPrimsaTable } = hookPrisma();
 
-  const prismaTable = await checkPrimsaTable(table);
+  const prismaTable = await CheckPrimsaTable(table);
 
   try {
     const results = await prismaTable.delete({
