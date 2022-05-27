@@ -1,0 +1,109 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model Vendredi {
+  id          Int           @id @default(autoincrement())
+  created_at   DateTime     @default(now())
+  pseudo      String        @unique
+  comment     String?
+}
+
+model Samedi {
+  id          Int           @id @default(autoincrement())
+  created_at   DateTime     @default(now())
+  pseudo      String        @unique
+  comment     String?
+}
+
+model Ouverture {
+  id          Int           @id @default(autoincrement())
+  created_at   DateTime     @default(now())
+  pseudo      String        @unique
+  comment     String?
+}
+
+model Parking {
+  id          Int           @id @default(autoincrement())
+  created_at   DateTime     @default(now())
+  pseudo      String        @unique
+  comment     String?
+}
+
+model Inscriptions {
+  id          Int           @id @default(autoincrement())
+  created_at   DateTime     @default(now())
+  pseudo      String        @unique
+  comment     String?
+}
+
+model SecuritySite {
+  id          Int           @id @default(autoincrement())
+  created_at   DateTime     @default(now())
+  pseudo      String        @unique
+  comment     String?
+}
+
+model SecurityCircuits {
+  id          Int           @id @default(autoincrement())
+  created_at   DateTime     @default(now())
+  pseudo      String        @unique
+  comment     String?
+}
+
+model SecurityPassages {
+  id          Int           @id @default(autoincrement())
+  created_at   DateTime     @default(now())
+  pseudo      String        @unique
+  comment     String?
+}
+
+model Lavage {
+  id          Int           @id @default(autoincrement())
+  created_at   DateTime     @default(now())
+  pseudo      String        @unique
+  comment     String?
+}
+
+model Sandwich {
+  id          Int           @id @default(autoincrement())
+  created_at   DateTime     @default(now())
+  pseudo      String        @unique
+  comment     String?
+}
+
+model Ravito1 {
+  id          Int           @id @default(autoincrement())
+  created_at   DateTime     @default(now())
+  pseudo      String        @unique
+  comment     String?
+}
+
+model Ravito2 {
+  id          Int           @id @default(autoincrement())
+  created_at   DateTime     @default(now())
+  pseudo      String        @unique
+  comment     String?
+}
+
+model Ravito3 {
+  id          Int           @id @default(autoincrement())
+  created_at   DateTime     @default(now())
+  pseudo      String        @unique
+  comment     String?
+}
+
+model Cochon {
+  id          Int           @id @default(autoincrement())
+  created_at   DateTime     @default(now())
+  pseudo      String        @unique
+  comment     String?
+}

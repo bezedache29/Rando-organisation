@@ -45,3 +45,6 @@ a {
   height: 1px;
   background-color: #e0552a!important;
 }
+.cursor-pointer {
+  cursor: pointer;
+}
