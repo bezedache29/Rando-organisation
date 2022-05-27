@@ -14,3 +14,34 @@ a {
 * {
   box-sizing: border-box;
 }
+
+.bg-cdl-primary {
+  background-color: #e0552a!important;
+}
+
+.bg-cdl-secondary {
+  background-color: #f7d4c9!important;
+}
+
+.text-cdl-primary {
+  color: #e0552a!important;
+}
+
+.btn-cdl-primary {
+  background-color: #e0552a!important;
+  color: white!important;
+}
+.btn-cdl-primary:hover {
+  background-color: #f7d4c9!important;
+  color: black!important;
+}
+.cdl-icon {
+  width: 20px;
+  height: 20px;
+}
+.divider {
+  width: 100%;
+  border: 1px solid #e0552a!important;
+  height: 1px;
+  background-color: #e0552a!important;
+}
