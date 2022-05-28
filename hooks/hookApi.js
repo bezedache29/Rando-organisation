@@ -44,9 +44,21 @@ export default function hookApi() {
     }
   }
 
+  const testApi = async () => {
+    try {
+      const res = await fetch(`${process.env.REACT_APP_URL_API}/subscribers/test`);
+      const response = res.json();
+
+      return response;
+    } catch (err) {
+      console.log(err)
+    }
+  }
+
   return {
     LoadSubscribers,
     AddSubscribers,
-    DeleteSubscriberFromTable
+    DeleteSubscriberFromTable,
+    testApi
   }
 }

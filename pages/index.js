@@ -46,7 +46,7 @@ export default function Home() {
   const [security2List, setSecurity2List] = useState([]);
   const [security3List, setSecurity3List] = useState([]);
 
-  const { LoadSubscribers, DeleteSubscriberFromTable } = hookApi();
+  const { LoadSubscribers, DeleteSubscriberFromTable, testApi } = hookApi();
 
   const [showAlert, setShowAlert] = useState(false);
 
@@ -94,6 +94,11 @@ export default function Home() {
     setModalDelete(false);
   }
 
+  const goTest = async () => {
+    const response = await testApi();
+    console.log(response);
+  }
+
   if (loading) {
     return (
       <div className="container d-flex justify-content-center align-items-center vh-100">
@@ -122,6 +127,8 @@ export default function Home() {
           <p className='my-0'>Le Côte Des Légendes VTT organise sa 20ème rando</p>
           <p className='my-0'>Pour la réussite d&apos;une belle journée, la mobilisation de tous est indispensable.</p>
         </div>
+
+        <button onClick={goTest}>Hello</button>
 
         {showAlert && (
           <Alert className='sticky-top' variant="success" onClose={() => setShowAlert(false)} dismissible>
